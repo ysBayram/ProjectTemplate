@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6F78C817-C117-487C-A96F-31FCA5EB6C8E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectTemplate.Core</RootNamespace>
+    <AssemblyName>ProjectTemplate.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Abstractions\Business\IBusinessBase.cs" />
+    <Compile Include="Abstractions\Business\IBusinessCity.cs" />
+    <Compile Include="Abstractions\Business\IBusinessClassroom.cs" />
+    <Compile Include="Abstractions\Business\IBusinessEmployeeType.cs" />
+    <Compile Include="Abstractions\Business\IBusinessFirm.cs" />
+    <Compile Include="Abstractions\Business\IBusinessControl.cs" />
+    <Compile Include="Abstractions\Business\IBusinessDataType.cs" />
+    <Compile Include="Abstractions\Business\IBusinessDepartment.cs" />
+    <Compile Include="Abstractions\Business\IBusinessEducation.cs" />
+    <Compile Include="Abstractions\Business\IBusinessIskurClassroom.cs" />
+    <Compile Include="Abstractions\Business\IBusinessJobInterview.cs" />
+    <Compile Include="Abstractions\Business\IBusinessTerm.cs" />
+    <Compile Include="Abstractions\Business\IBusinessTraineeStatus.cs" />
+    <Compile Include="Abstractions\Business\IBusinessEmploymentStatus.cs" />
+    <Compile Include="Abstractions\Business\IBusinessTrainee.cs" />
+    <Compile Include="Abstractions\Business\IBusinessTraineeEmploymentStatus.cs" />
+    <Compile Include="Abstractions\Business\IBusinessTraineeEmploymentStatusField.cs" />
+    <Compile Include="Abstractions\Business\IBusinessTraineeEmploymentStatusReason.cs" />
+    <Compile Include="Abstractions\Business\IBusinessTraineeEmploymentStatusReasonDetail.cs" />
+    <Compile Include="Abstractions\Business\IBusinessBranch.cs" />
+    <Compile Include="Abstractions\Business\IBusinessEmployee.cs" />
+    <Compile Include="Abstractions\Business\IBusinessEmployeeHistory.cs" />
+    <Compile Include="Abstractions\IEntityKey.cs" />
+    <Compile Include="Abstractions\IGetFullName.cs" />
+    <Compile Include="Abstractions\IIsDeleted.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryBase.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryBranch.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryCity.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryClassroom.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryDepartment.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryEmployee.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryEmployeeHistory.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryEmployeeType.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryFirm.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryControl.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryDataType.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryJobInterview.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryIskurClassroom.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryTerm.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryTraineeStatus.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryEmploymentStatus.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryTrainee.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryEducation.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryTraineeEmploymentStatus.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryTraineeEmploymentStatusField.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryTraineeEmploymentStatusReason.cs" />
+    <Compile Include="Abstractions\Repository\IRepositoryTraineeEmploymentStatusReasonDetail.cs" />
+    <Compile Include="Abstractions\Service\IServiceBase.cs" />
+    <Compile Include="Abstractions\Service\IServiceBranch.cs" />
+    <Compile Include="Abstractions\Service\IServiceCity.cs" />
+    <Compile Include="Abstractions\Service\IServiceClassroom.cs" />
+    <Compile Include="Abstractions\Service\IServiceDepartment.cs" />
+    <Compile Include="Abstractions\Service\IServiceEmployee.cs" />
+    <Compile Include="Abstractions\Service\IServiceEmployeeHistory.cs" />
+    <Compile Include="Abstractions\Service\IServiceEmployeeType.cs" />
+    <Compile Include="Abstractions\Service\IServiceFirm.cs" />
+    <Compile Include="Abstractions\Service\IServiceControl.cs" />
+    <Compile Include="Abstractions\Service\IServiceDataType.cs" />
+    <Compile Include="Abstractions\Service\IServiceEducation.cs" />
+    <Compile Include="Abstractions\Service\IServiceIskurClassroom.cs" />
+    <Compile Include="Abstractions\Service\IServiceJobInterview.cs" />
+    <Compile Include="Abstractions\Service\IServiceTerm.cs" />
+    <Compile Include="Abstractions\Service\IServiceTraineeStatus.cs" />
+    <Compile Include="Abstractions\Service\IServiceEmploymentStatus.cs" />
+    <Compile Include="Abstractions\Service\IServiceTrainee.cs" />
+    <Compile Include="Abstractions\Service\IServiceTraineeEmploymentStatus.cs" />
+    <Compile Include="Abstractions\Service\IServiceTraineeEmploymentStatusField.cs" />
+    <Compile Include="Abstractions\Service\IServiceTraineeEmploymentStatusReason.cs" />
+    <Compile Include="Abstractions\Service\IServiceTraineeEmploymentStatusReasonDetail.cs" />
+    <Compile Include="EF\EFRepository.cs" />
+    <Compile Include="EF\EFUnitOfWork.cs" />
+    <Compile Include="EF\ProjectTemplateConfiguration.cs" />
+    <Compile Include="EF\ProjectTemplateContext.cs" />
+    <Compile Include="Entities\Base.cs" />
+    <Compile Include="Entities\Branch.cs" />
+    <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\Classroom.cs" />
+    <Compile Include="Entities\ControlEnt.cs" />
+    <Compile Include="Entities\DataTypeEnt.cs" />
+    <Compile Include="Entities\Education.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\EmployeeHistory.cs" />
+    <Compile Include="Entities\EmployeeType.cs" />
+    <Compile Include="Entities\Firm.cs" />
+    <Compile Include="Entities\Department.cs" />
+    <Compile Include="Entities\IskurClassroom.cs" />
+    <Compile Include="Entities\JobInterview.cs" />
+    <Compile Include="Entities\KursiyerEgitim.cs" />
+    <Compile Include="Entities\TraineeStatus.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\TraineeEmploymentStatus.cs" />
+    <Compile Include="Entities\EmploymentStatus.cs" />
+    <Compile Include="Entities\Term.cs" />
+    <Compile Include="Entities\Trainee.cs" />
+    <Compile Include="Entities\TraineeEmploymentStatusReason.cs" />
+    <Compile Include="Entities\TraineeEmploymentStatusReasonDetail.cs" />
+    <Compile Include="Entities\TraineeEmploymentStatusField.cs" />
+    <Compile Include="Enums\ModelType.cs" />
+    <Compile Include="FluentMappings\BranchMap.cs" />
+    <Compile Include="FluentMappings\CityMap.cs" />
+    <Compile Include="FluentMappings\ClassroomMap.cs" />
+    <Compile Include="FluentMappings\DepartmentMap.cs" />
+    <Compile Include="FluentMappings\EducationMap.cs" />
+    <Compile Include="FluentMappings\EmployeeTypeMap.cs" />
+    <Compile Include="FluentMappings\FirmMap.cs" />
+    <Compile Include="FluentMappings\ControlMap.cs" />
+    <Compile Include="FluentMappings\DataTypeMap.cs" />
+    <Compile Include="FluentMappings\IskurClassroomMap.cs" />
+    <Compile Include="FluentMappings\JobInterviewMap.cs" />
+    <Compile Include="FluentMappings\TermMap.cs" />
+    <Compile Include="FluentMappings\TraineeStatusMap.cs" />
+    <Compile Include="FluentMappings\TraineeEmploymentStatusMap.cs" />
+    <Compile Include="FluentMappings\TraineeEmploymentStatusFieldMap.cs" />
+    <Compile Include="FluentMappings\EmploymentStatusMap.cs" />
+    <Compile Include="FluentMappings\TraineeMap.cs" />
+    <Compile Include="FluentMappings\TraineeEmploymentStatusReasonMap.cs" />
+    <Compile Include="FluentMappings\TraineeEmploymentStatusReasonDetailMap.cs" />
+    <Compile Include="FluentMappings\EmployeeHistoryMap.cs" />
+    <Compile Include="FluentMappings\EmployeeMap.cs" />
+    <Compile Include="IoC\Castle\CastleDependencyContainer.cs" />
+    <Compile Include="IoC\DependencyContainer.cs" />
+    <Compile Include="IoC\DependencyScope.cs" />
+    <Compile Include="IoC\IDependencyContainer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\IUnitOfWork.cs" />
+    <Compile Include="Repository\MappingHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTO\" />
+    <Folder Include="EntitiesCustom\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

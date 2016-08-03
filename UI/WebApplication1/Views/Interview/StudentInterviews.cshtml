@@ -1,0 +1,199 @@
+﻿@{
+    ViewBag.Title = "StudentInterviews";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@using ProjectTemplate.Core.Entities
+@using ProjectTemplate.Core.Enums
+@model IEnumerable<WebApplication1.Models.StudentInterviewModel>
+
+@section Styles {
+    @Styles.Render("~/bundles/datatablecss")
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Basic Data Tables example with responsive plugin</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <table id="example" class="nowrap hover order-column" cellspacing="0" width="100">
+                        <thead>
+                            <tr>
+                                <th colspan="12" style="text-align : center; border-right: 1px solid #ccc;">Firma - Öğrenci Takip Bilgileri</th>
+                                <th colspan="4" style="text-align : center; border-right: 1px solid #ccc;">Gönderilen Firma 1</th>
+                                <th colspan="4" style="text-align : center; border-right: 1px solid #ccc;">Gönderilen Firma 2</th>
+                                <th colspan="4" style="text-align : center">Gönderilen Firma 3</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>Tc Kimlik No</th>
+                                <th>Adı Soyadı</th>
+                                <th>Kariyer Koçu</th>
+                                <th>Şubesi</th>
+                                <th>İşkur Sınıfı</th>
+                                <th>Aldığı Eğitim</th>
+                                <th>Durumu</th>
+                                <th>Durum Açıklama</th>
+                                <th>Son Görüşme Tarihi</th>
+                                <th>Butonlar</th>
+                                <th style="border-right: 1px solid #ccc;">Rezerve Edildiği Firma Ünvanı</th>
+                                <th>Ünvanı</th>
+                                <th>Gönderildiği Tarih</th>
+                                <th>Sonuç</th>
+                                <th style="border-right: 1px solid #ccc;">Model</th>
+                                <th>Ünvanı</th>
+                                <th>Gönderildiği Tarih</th>
+                                <th>Sonuç</th>
+                                <th style="border-right: 1px solid #ccc;">Model</th>
+                                <th>Ünvan</th>
+                                <th>Gönderildiği Tarih</th>
+                                <th>Sonuç</th>
+                                <th>Model</th>
+                            </tr>
+                        </thead>
+
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>Durumu</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td></td>
+                                    <td>@item.IdentityNumber</td>
+                                    <td>@item.FullName</td>
+                                    <td>@item.TeacherFullName</td>
+                                    <td>@item.BranchName</td>
+                                    <td>@item.IskurClass</td>
+                                    <td>@item.EducationName</td>
+                                    <td>@item.StudentWorkState</td>
+                                    <td>@item.StateDescription</td>
+                                    <td>@item.LastInterviewDate</td>
+                                    <td>@Html.ActionLink("KK Değiştir", "Edit", "Teacher", new { Id = @item.Id }, null) | @Html.ActionLink("Düzenle", "StudentWorkStateEdit", new { Id = @item.Id })</td>
+                                    <td>@item.ReserverdCompanyName</td>
+
+
+                                    @foreach (JobInterview t in @item.Interviews)
+                                    {
+                                        <td>@t.Firm.Name</td>
+                                        <td>@t.Date</td>
+                                        <td>@t.Description</td>
+                                        <td>@Enum.GetName(typeof(ModelType), t.ModelType)</td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    @Html.ActionLink("Excel Çıktısı", "Excel", "Export")
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/datatablejs")
+
+
+    <script type="text/javascript" language="javascript" class="init">
+
+        $(document).ready(function () {
+            $('#example').DataTable({
+                initComplete: function () {
+                    this.api().columns().every(function () {
+                        var column = this;
+
+                        if ($(column.footer()).text() != "") {
+                            var select = $('<select><option value="">Tümü</option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+
+                            column.data().unique().sort().each(function (d, j) {
+                                if (d != "" && d != null)
+                                    select.append('<option value="' + d + '">' + d + '</option>')
+                            });
+                        }
+                    });
+                },
+                responsive: {
+                    details: {
+                        type: 'column',
+                        target: 0
+                    }
+                },
+                columnDefs: [{
+                    className: 'control',
+                    orderable: false,
+                    targets: 0
+                },
+                {
+                    orderable: false,
+                    targets: [1, 8, 10]
+                }],
+                order: [1, 'asc']
+            });
+        });
+
+    </script>
+}
+
+
+
